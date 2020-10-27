@@ -1,7 +1,7 @@
 # ESP32CamNode
 Backend for persisting data received from IoT security cameras.
 
-![peace](https://raw.githubusercontent.com/MicroJEdi/ESP32CamNode/main/peace.jpg)
+![peace](/peace.jpg)
 
 ## The Utilized Stack
 
