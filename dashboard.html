@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sample Site</title>
+
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.1/css/bootstrap.min.css">
+    <style>
+        body { padding-top:50px; }
+    </style>
+    <script>
+        const updateImage = () => {
+            console.log("HELLO WORLD");
+            document.getElementById("capturedImage").src = "capture.jpg?" + new Date().getTime();
+        }
+
+        const captureImage = () => {
+            fetch("CaptureImage")
+                .then(resp => 
+                    resp.text())
+                .then(text => {
+                    console.log(text);
+                })
+        }
+        const downloadImage = () => {
+            fetch("DownloadImage")
+                .then(resp => 
+                    resp.text())
+                .then(text => {
+                    console.log(text);
+                    setTimeout(updateImage, 1000);
+                })
+        }
+    </script>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Images</h1>
+        <div>
+            <button onclick="captureImage()">Capture Image</button>
+            <button onclick="downloadImage()">Download Image</button>
+        </div>
+        <br />
+        <div>
+            <img id="capturedImage" height="350px" src="capture.jpg" />
+        </div>
+    </div>
+
+</body>
+</html>
